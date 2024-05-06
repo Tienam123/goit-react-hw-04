@@ -15,8 +15,9 @@ const ImageGallery = ({
                 {gallery.map((image) => (
                     <ImageCard key={image.id}
                                setCurerentImageInModal={setCurrentImageInModal}
-                               preview={image.previewURL}
-                               largeImg={image.largeImageURL}
+                               preview={image.urls.raw}
+                               altDescr={image.alt_description}
+                               largeImg={image.urls.full}
                                openModal={openModal}
                     />
                 ))}

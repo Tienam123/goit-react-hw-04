@@ -1,25 +1,13 @@
 import axios from "axios";
 
-const API_KEY = '41512134-7ce1694d07a59eb7d39c787c8';
-
+const API_KEY_UNSPLASH = 'DpHeLCf8Myf-ctad09x85yFdS8xRIxlglgRermDkhpQ'
+const API_KEY_PIXABAY = '41512134-7ce1694d07a59eb7d39c787c8';
+// const urlPixabay = `https://pixabay.com/api/?key=${API_KEY_PIXABAY}&q=${query}&image_type=photo&orientation=horisontal&safesearch=true&per_page=15&page=${page}`;
+// const urlUnsplash = `https://api.unsplash.com/search/photos?client_id=DpHeLCf8Myf-ctad09x85yFdS8xRIxlglgRermDkhpQ&query=${query}&page=${page}&per_page=20`
 
 export const getImagesPixabay = async (query, page) => {
-    const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horisontal&safesearch=true&per_page=15&page=${page}`;
-    try {
-        const data = await axios.get(url)
-        return data.data
-    }
-    catch (error) {
-        if (error.response) {
-            // Ошибка при получении ответа с кодом состояния, отличным от 2xx
-            console.error('Ошибка получения данных:', error.response.status);
-        } else if (error.request) {
-            // Ошибка при отправке запроса
-            console.error('Ошибка отправки запроса:', error.request);
-        } else {
-            // Ошибка при настройке запроса
-            console.error('Ошибка настройки запроса:', error.message);
-        }
-    }
+    const urlUnsplash = `https://api.unsplash.com/search/photos?client_id=${API_KEY_UNSPLASH}&query=${query}&page=${page}&per_page=20`
 
+    const data = await axios.get(urlUnsplash)
+    return data.data
 }

@@ -24,7 +24,6 @@ const ImageModal = ({
         <Modal
             isOpen={modalIsOpen}
             onRequestClose={() => handleClose()}
-            style={customStyles}
             contentLabel="Example Modal"
         >
             {children}
