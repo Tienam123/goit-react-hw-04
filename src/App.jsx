@@ -6,6 +6,8 @@ import {useQuery} from "@tanstack/react-query";
 import Modal from "react-modal";
 import ImageModal from "@/components/ImageModal/ImageModal.jsx";
 import {lockedScroll} from "@/services/lockedScroll.js";
+import Loader from "@/components/Loader/Loader.jsx";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage.jsx";
 
 const App = () => {
     //State Options
@@ -59,7 +61,7 @@ const App = () => {
             <SearchBar changeQuery={setQuery}
                        resetPage={resetPage}
             />
-            Loading ./...
+            <Loader/>
         </>
     }
 
@@ -68,7 +70,7 @@ const App = () => {
             <SearchBar changeQuery={setQuery}
                        resetPage={resetPage}
             />
-            <div>На сайте произошла ошибка {error.message}. Пожалуйста перезагрузите страничку</div>
+            <ErrorMessage/>
         </>
     }
 
