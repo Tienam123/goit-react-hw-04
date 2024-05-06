@@ -69,7 +69,7 @@ const App = () => {
             <SearchBar changeQuery={setQuery}
                        resetPage={resetPage}
             />
-            <ErrorMessage/>
+            <ErrorMessage error={error}/>
         </>
     }
 
