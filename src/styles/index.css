@@ -1,0 +1,56 @@
+/* -----------------------------------/ Normalize styles /--------------------------------------- */
+
+@import "modern-normalize";
+/* -----------------------------------/ Variables /--------------------------------------- */
+@import "variables.css";
+
+/* -----------------------------------/ Settings of Page /--------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*--------------------------------------------------------------------------*/
+.scroll-locked {
+    overflow: hidden;
+    touch-action: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+[class*="__container"] {
+    padding: 0 15px;
+}
+
+@media screen and (max-width: 374.98px) {
+    [class*="__container"] {
+        max-width: 375px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    [class*="__container"] {
+        max-width: 375px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    [class*="__container"] {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    [class*="__container"] {
+        max-width: 1440px;
+    }
+}

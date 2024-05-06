@@ -1,0 +1,22 @@
+:root {
+    /* Root colors */
+    --bgColor: #fff;
+    --mainColor: #000;
+
+    /* Page Settings */
+    --minWidth: 320px;
+    --maxWidth: 1440px;
+
+    /*  Color Palette */
+
+
+    /* Font-settings */
+    --fontFamily: "Avenir Roman", sans-sefif;
+    --fontSize: 14px;
+    /*  Variables  */
+    --pc: var(--maxWidth);
+    --tablet: 768px;
+    --mobile: 374px;
+
+    /*  Animation  */
+}
