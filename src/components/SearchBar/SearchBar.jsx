@@ -1,5 +1,6 @@
 import {CiSearch} from "react-icons/ci";
 import {useFormik} from "formik";
+import toast from "react-hot-toast";
 
 const SearchBar = ({
                        changeQuery,
@@ -10,6 +11,10 @@ const SearchBar = ({
             query: ''
         },
         onSubmit: (values, {resetForm}) => {
+            if (values.query.trim() === '') {
+                toast.error(`You can't send empty data!`);
+                return
+            }
             console.log(values)
             resetPage()
             changeQuery(values.query)
