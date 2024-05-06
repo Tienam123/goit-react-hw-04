@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import ImageGallery from "@/components/ImageGallery/ImageGallery.jsx";
 import {getImagesPixabay} from "@/services/apiService.js";
 import {useQuery} from "@tanstack/react-query";
-import Modal from "react-modal";
 import ImageModal from "@/components/ImageModal/ImageModal.jsx";
 import {lockedScroll} from "@/services/lockedScroll.js";
 import Loader from "@/components/Loader/Loader.jsx";
