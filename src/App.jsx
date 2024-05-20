@@ -2,11 +2,12 @@ import SearchBar from "@/components/SearchBar/SearchBar.jsx";
 import {useState} from "react";
 import ImageGallery from "@/components/ImageGallery/ImageGallery.jsx";
 import {useInfiniteQuery} from "@tanstack/react-query";
-import {getImages, getImagesPixabay} from "@/services/apiService.js";
+import {getImages} from "@/services/apiService.js";
 import ImageCard from "@/components/ImageCard/ImageCard.jsx";
 import LoadMoreButton from "@/components/LoadMoreBtn/LoadMoreButton.jsx";
 import ImageModal from "@/components/ImageModal/ImageModal.jsx";
 import Loader from "@/components/Loader/Loader.jsx";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage.jsx";
 
 const App = () => {
     const [query, setQuery] = useState('')
@@ -17,6 +18,8 @@ const App = () => {
     const {
         data,
         isLoading,
+        isError,
+        error,
         isFetchingNextPage,
         fetchNextPage,
         hasNextPage,
@@ -25,8 +28,6 @@ const App = () => {
         queryFn: ({pageParam}) => getImages(query, pageParam),
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
-            console.log(lastPageParam);
-            console.log(lastPage)
             if (lastPageParam <= lastPage.total_pages) {
                 return lastPageParam + 1;
             }
@@ -34,9 +35,23 @@ const App = () => {
         enabled: !!query
     })
 
+    if (isError) {
+        return (
+            <>
+                <SearchBar setNewQuery={setNewQuery} />
+                <ErrorMessage error={error} />
+            </>
+        )
+
+    }
 
     if (isLoading) {
-        return <Loader />
+        return (
+            <>
+                <SearchBar setNewQuery={setNewQuery} />
+                <Loader />
+            </>
+        )
     }
 
     return (
