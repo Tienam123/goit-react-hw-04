@@ -1,19 +1,21 @@
+import style from "./ImageCard.module.css";
+
 const ImageCard = ({
-                       largeImg,
-                       preview,
-                       openModal,
-                       setCurerentImageInModal,
+                       card,
+                       setImageModal,
+                       toggleModal,
                    }) => {
     const handleClickCard = () => {
-        setCurerentImageInModal(largeImg)
-        openModal()
+        setImageModal(card.urls.full);
+        toggleModal()
     }
-
     return (
-        <li className='w-1/4 h-80'
-            onClick={handleClickCard}
+        <li className={`h-80 ${style.card}`}
+
         >
-            <img src={preview}
+            <img src={card.urls.raw}
+                 onClick={handleClickCard}
+                 loading='lazy'
                  className='w-full h-full'
                  alt=''
             />

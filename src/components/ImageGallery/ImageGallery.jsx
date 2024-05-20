@@ -1,31 +1,14 @@
-import ImageCard from "@/components/ImageCard/ImageCard.jsx";
-
-
 const ImageGallery = ({
-                          gallery,
-                          increasePage,
-                          setCurrentImageInModal,
-                          openModal,
+                          children
                       }) => {
 
 
     return (
         <>
-            <ul className='flex justify-center my-5 items-center gap-5 flex-wrap'>
-                {gallery.map((image) => (
-                    <ImageCard key={image.id}
-                               setCurerentImageInModal={setCurrentImageInModal}
-                               preview={image.urls.raw}
-                               altDescr={image.alt_description}
-                               largeImg={image.urls.full}
-                               openModal={openModal}
-                    />
-                ))}
+            <ul className='flex w-10/12 mx-auto my-5 gap-4 items-center flex-wrap'>
+                {children}
             </ul>
-            <button onClick={increasePage}
-                    className='py-2 px-5 bg-blue-600 mt-10 block text-white rounded'
-            >Load More
-            </button>
+
         </>
     );
 };

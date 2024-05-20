@@ -2,23 +2,20 @@ import {CiSearch} from "react-icons/ci";
 import {useFormik} from "formik";
 import toast from "react-hot-toast";
 
-const SearchBar = ({
-                       changeQuery,
-                       resetPage
-                   }) => {
+const SearchBar = ({setNewQuery}) => {
     const formik = useFormik({
         initialValues: {
             query: ''
         },
         onSubmit: (values, {resetForm}) => {
             if (values.query.trim() === '') {
-                toast.error(`You can't send empty data!`);
+                toast.error(`You can't send empty data!`, {
+                    position: 'top-right',
+                });
                 return
             }
-            console.log(values)
-            resetPage()
-            changeQuery(values.query)
-            resetForm()
+            setNewQuery(values.query);
+            resetForm();
         },
     })
     return (
@@ -36,7 +33,7 @@ const SearchBar = ({
                     <button className='absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-4'
                             type='submit'
                     >
-                        <CiSearch size={22}/>
+                        <CiSearch size={22} />
                     </button>
 
                 </label>

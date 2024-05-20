@@ -1,4 +1,6 @@
 import Modal from 'react-modal';
+import {useEffect} from "react";
+import {lockedScroll} from "@/services/lockedScroll.js";
 
 const customStyles = {
     content: {
@@ -20,6 +22,7 @@ const ImageModal = ({
                         handleClose,
                         modalIsOpen
                     }) => {
+    lockedScroll(modalIsOpen);
     return (<div>
         <Modal
             isOpen={modalIsOpen}
